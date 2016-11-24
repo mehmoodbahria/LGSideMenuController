@@ -2,28 +2,33 @@
 //  NavigationController.swift
 //  LGSideMenuControllerDemo
 //
-//  Created by Cole Dunsby on 2016-07-24.
-//  Copyright © 2016 Cole Dunsby. All rights reserved.
+//  Created by Grigory Lutkov on 06.11.15.
+//  Copyright © 2015 Grigory Lutkov <Friend.LGA@gmail.com>. All rights reserved.
 //
 
 import UIKit
 
 class NavigationController: UINavigationController {
 
-    override func shouldAutorotate() -> Bool {
+    override func viewDidLoad() {
+        navigationBar.isTranslucent = true
+        navigationBar.barTintColor = .white
+    }
+
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return UI_USER_INTERFACE_IDIOM() == .Phone && UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation)
+    override var prefersStatusBarHidden : Bool {
+        return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .Default
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .default
     }
     
-    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        return .None
+    override var preferredStatusBarUpdateAnimation : UIStatusBarAnimation {
+        return .none
     }
 
 }

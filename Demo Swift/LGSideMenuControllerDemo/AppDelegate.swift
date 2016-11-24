@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LGSideMenuControllerDemo
 //
-//  Created by Cole Dunsby on 2016-07-24.
-//  Copyright © 2016 Cole Dunsby. All rights reserved.
+//  Created by Grigory Lutkov on 28.07.15.
+//  Copyright © 2015 Grigory Lutkov <Friend.LGA@gmail.com>. All rights reserved.
 //
 
 import UIKit
@@ -13,12 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        return true
-    }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let navigationController = ChooseNavigationController()
 
-    func application(application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation) {
-        application.statusBarHidden = UI_USER_INTERFACE_IDIOM() == .Phone && UIInterfaceOrientationIsLandscape(application.statusBarOrientation)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.backgroundColor = .white
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
+
+        return true
     }
 
 }
